@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'components/themes' as themes;
+@use './palettes' as palettes;
+
+$light-theme: (
+    theme-name: light-theme,
+    theme-type: light,
+    palettes: (
+        primary: palettes.$azure-palette,
+        secondary: palettes.$magenta-palette,
+        tertiary: palettes.$green-palette,
+        warn: palettes.$red-palette
+    )
+);
+
+@include themes.all-component-themes($light-theme);
