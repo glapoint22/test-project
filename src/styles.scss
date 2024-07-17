@@ -1,4 +1,4 @@
-@use 'components/themes' as themes;
+@use 'components/' as components;
 @use './palettes' as palettes;
 
 $light-theme: (
@@ -12,4 +12,4 @@ $light-theme: (
     )
 );
 
-@include themes.all-component-themes($light-theme);
+@include components.all-themes($light-theme);
