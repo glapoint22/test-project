@@ -4,12 +4,46 @@
 $light-theme: (
     theme-name: light-theme,
     theme-type: light,
-    palettes: (
-        primary: palettes.$azure-palette,
+    palettes: (primary: palettes.$azure-palette,
         secondary: palettes.$magenta-palette,
         tertiary: palettes.$green-palette,
-        warn: palettes.$red-palette
-    )
+        warn: palettes.$red-palette )
+);
+
+$dark-theme: (
+    theme-name: dark-theme,
+    theme-type: dark,
+    palettes: (primary: palettes.$azure-palette,
+        secondary: palettes.$magenta-palette,
+        tertiary: palettes.$green-palette,
+        warn: palettes.$red-palette )
 );
 
 @include components.all-themes($light-theme);
+@include components.all-themes($dark-theme);
+
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    color: inherit;
+}
