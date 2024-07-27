@@ -1,11 +1,11 @@
 import { Component, inject, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IconComponent, RadioButtonComponent, CheckboxComponent, RadioGroupComponent } from 'Components';
+import { IconComponent, RadioButtonComponent, CheckboxComponent, RadioGroupComponent, TextButtonDirective } from 'Components';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IconComponent, RadioGroupComponent, RadioButtonComponent, CheckboxComponent, FormsModule],
+  imports: [IconComponent, RadioGroupComponent, RadioButtonComponent, CheckboxComponent, FormsModule, TextButtonDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
