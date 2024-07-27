@@ -1,16 +1,20 @@
 import { Component, inject, Renderer2 } from '@angular/core';
-import { IconComponent, RadioButtonComponent, CheckboxComponent } from 'Components';
+import { FormsModule } from '@angular/forms';
+import { IconComponent, RadioButtonComponent, CheckboxComponent, RadioGroupComponent } from 'Components';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IconComponent, RadioButtonComponent, CheckboxComponent],
+  imports: [IconComponent, RadioGroupComponent, RadioButtonComponent, CheckboxComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   protected buttonLabel!: string;
   private renderer = inject(Renderer2);
+  favoriteSeason: string = 'Summer';
+  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+  checked = true;
 
 
   ngOnInit() {
