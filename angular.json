@@ -36,7 +36,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/components/styles.scss"
+              "node_modules/ngx-toolkit/styles.scss"
               
             ],
             "scripts": []

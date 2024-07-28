@@ -1,11 +1,34 @@
 import { Component, inject, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IconComponent, RadioButtonComponent, CheckboxComponent, RadioGroupComponent, TextButtonDirective } from 'Components';
+import {
+  IconComponent,
+  RadioButtonComponent,
+  CheckboxComponent,
+  RadioGroupComponent,
+  TextButtonDirective,
+  RaisedButtonDirective,
+  StrokedButtonDirective,
+  FlatButtonDirective,
+  IconButtonDirective,
+  DividerComponent
+} from 'ngx-toolkit';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IconComponent, RadioGroupComponent, RadioButtonComponent, CheckboxComponent, FormsModule, TextButtonDirective],
+  imports: [
+    IconComponent,
+    RadioGroupComponent,
+    RadioButtonComponent,
+    CheckboxComponent,
+    FormsModule,
+    TextButtonDirective,
+    RaisedButtonDirective,
+    StrokedButtonDirective,
+    FlatButtonDirective,
+    IconButtonDirective,
+    DividerComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -23,8 +46,8 @@ export class AppComponent {
   }
 
 
-  
-  
+
+
   protected onClick(): void {
     if (this.buttonLabel === 'Dark Theme') {
       this.buttonLabel = 'Light Theme';
