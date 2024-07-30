@@ -23,4 +23,34 @@
 <button iconButton>
     <icon fill>star</icon>
 </button>
+
+<br>
+<br>
 <divider />
+
+<br>
+<br>
+
+<form-field>
+    <input inputField>
+    <form-field-label>First Name</form-field-label>
+    <form-field-hint>i.e. John</form-field-hint>
+</form-field>
+
+<br>
+<br>
+<br>
+
+<form-field>
+    <form-field-label>Your state</form-field-label>
+    <dropdown [(ngModel)]="selectedValue">
+        <dropdown-item>None</dropdown-item>
+        @for (state of states; track state) {
+        <dropdown-item [value]="state">{{state}}</dropdown-item>
+        }
+    </dropdown>
+</form-field>
+
+<div>Your state is: {{selectedValue}}</div>
+
+<br>

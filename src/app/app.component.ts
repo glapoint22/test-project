@@ -10,7 +10,13 @@ import {
   StrokedButtonDirective,
   FlatButtonDirective,
   IconButtonDirective,
-  DividerComponent
+  DividerComponent,
+  FormFieldComponent,
+  FormFieldLabelComponent,
+  FormFieldHintComponent,
+  InputFieldDirective,
+  DropdownComponent,
+  DropdownItemComponent
 } from 'ngx-toolkit';
 
 @Component({
@@ -27,7 +33,13 @@ import {
     StrokedButtonDirective,
     FlatButtonDirective,
     IconButtonDirective,
-    DividerComponent
+    DividerComponent,
+    FormFieldComponent,
+    FormFieldLabelComponent,
+    FormFieldHintComponent,
+    InputFieldDirective,
+    DropdownComponent,
+    DropdownItemComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -38,6 +50,61 @@ export class AppComponent {
   favoriteSeason: string = 'Summer';
   seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
   checked = true;
+
+  selectedValue!: string ;
+
+  states: string[] = [
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Carolina',
+    'North Dakota',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming',
+  ];
 
 
   ngOnInit() {
