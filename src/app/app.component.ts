@@ -16,7 +16,9 @@ import {
   FormFieldHintComponent,
   InputFieldDirective,
   DropdownComponent,
-  DropdownItemComponent
+  DropdownItemComponent,
+  DatePickerDirective,
+  SuffixDirective
 } from 'ngx-toolkit';
 
 @Component({
@@ -39,7 +41,9 @@ import {
     FormFieldHintComponent,
     InputFieldDirective,
     DropdownComponent,
-    DropdownItemComponent
+    DropdownItemComponent,
+    DatePickerDirective,
+    SuffixDirective
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -105,6 +109,8 @@ export class AppComponent {
     'Wisconsin',
     'Wyoming',
   ];
+
+  myDate: Date = new Date('6/22/24');
 
 
   ngOnInit() {

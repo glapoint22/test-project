@@ -54,3 +54,14 @@
 <div>Your state is: {{selectedValue}}</div>
 
 <br>
+
+<br>
+
+<form-field>
+    <input #myInput="datePicker" inputField datePicker [(ngModel)]="myDate">
+    <form-field-label>Choose a date</form-field-label>
+    <form-field-hint>MM/DD/YYYY</form-field-hint>
+    <button iconButton suffix (click)="myInput.toggleCalendar()">
+        <icon fill>calendar_month</icon>
+    </button>
+</form-field>
