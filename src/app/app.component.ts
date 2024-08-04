@@ -18,7 +18,11 @@ import {
   DropdownComponent,
   DropdownItemComponent,
   DatePickerDirective,
-  SuffixDirective
+  SuffixDirective,
+  MenuComponent,
+  MenuItemDirective,
+  MenuBarComponent,
+  MenuTriggerDirective
 } from 'ngx-toolkit';
 
 @Component({
@@ -43,7 +47,11 @@ import {
     DropdownComponent,
     DropdownItemComponent,
     DatePickerDirective,
-    SuffixDirective
+    SuffixDirective,
+    MenuComponent,
+    MenuItemDirective,
+    MenuBarComponent,
+    MenuTriggerDirective
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
