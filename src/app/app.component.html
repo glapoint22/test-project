@@ -1,4 +1,4 @@
-<button strokedButton style="float: right; margin: 10px;" (click)="onClick()">{{buttonLabel}}</button>
+<!-- <button strokedButton style="float: right; margin: 10px;" (click)="onClick()">{{buttonLabel}}</button>
 
 <menu-bar>
     <button [menuTrigger]="myMenu">File</button>
@@ -250,4 +250,25 @@
     </button>
 
     <button menuItem><span>Item 3</span></button>
-</menu>
+</menu> -->
+
+<panel>
+    <panel-header>
+        <panel-header-title>My Panel</panel-header-title>
+        <panel-header-actions>
+
+            <button panelHeaderActionButton>
+                <icon>horizontal_rule</icon>
+            </button>
+
+            <button panelHeaderActionButton>
+                <icon>select_window_2</icon>
+            </button>
+
+            <button panelHeaderActionButton>
+                <icon>close</icon>
+            </button>
+
+        </panel-header-actions>
+    </panel-header>
+</panel>

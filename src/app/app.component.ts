@@ -22,7 +22,12 @@ import {
   MenuComponent,
   MenuItemDirective,
   MenuBarComponent,
-  MenuTriggerDirective
+  MenuTriggerDirective,
+  PanelComponent,
+  PanelHeaderComponent,
+  PanelHeaderTitleComponent,
+  PanelHeaderActionsComponent,
+  PanelHeaderActionButtonDirective
 } from 'ngx-toolkit';
 
 @Component({
@@ -51,7 +56,12 @@ import {
     MenuComponent,
     MenuItemDirective,
     MenuBarComponent,
-    MenuTriggerDirective
+    MenuTriggerDirective,
+    PanelComponent,
+    PanelHeaderComponent,
+    PanelHeaderTitleComponent,
+    PanelHeaderActionsComponent,
+    PanelHeaderActionButtonDirective
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
