@@ -1,0 +1,27 @@
+<panel>
+    <panel-header>
+        <panel-header-title>My Dialog</panel-header-title>
+        <panel-header-actions>
+
+            <button panelHeaderActionButton>
+                <icon [fontSize]="18">horizontal_rule</icon>
+            </button>
+
+            <button panelHeaderActionButton>
+                <icon [fontSize]="14">select_window_2</icon>
+            </button>
+
+            <button panelHeaderActionButton>
+                <icon [fontSize]="18">close</icon>
+            </button>
+
+        </panel-header-actions>
+    </panel-header>
+    <panel-content>
+        <p style="padding: 0 10px;">
+            {{data}}
+        </p>
+
+        <button dynamicComponentClose="Hello">Close</button>
+    </panel-content>
+</panel>

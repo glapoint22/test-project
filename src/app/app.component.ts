@@ -23,12 +23,8 @@ import {
   MenuItemDirective,
   MenuBarComponent,
   MenuTriggerDirective,
-  PanelComponent,
-  PanelHeaderComponent,
-  PanelHeaderTitleComponent,
-  PanelHeaderActionsComponent,
-  PanelHeaderActionButtonDirective
-} from 'ngx-toolkit';
+  DynamicComponentService} from 'ngx-toolkit';
+import { MyDialogComponent } from './my-dialog/my-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -56,12 +52,7 @@ import {
     MenuComponent,
     MenuItemDirective,
     MenuBarComponent,
-    MenuTriggerDirective,
-    PanelComponent,
-    PanelHeaderComponent,
-    PanelHeaderTitleComponent,
-    PanelHeaderActionsComponent,
-    PanelHeaderActionButtonDirective
+    MenuTriggerDirective
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -130,10 +121,43 @@ export class AppComponent {
 
   myDate: Date = new Date('6/22/24');
 
+  private dynamicComponentService = inject(DynamicComponentService);
+
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'light-theme');
     this.buttonLabel = 'Dark Theme';
+
+    
+    const dynamicComponentRef =  this.dynamicComponentService.open(MyDialogComponent, {
+      data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
+            ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
+            nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
+            nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
+            nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
+            nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
+      hasBackdrop: true,
+      backdropClass: 'my-backdrop',
+      disableClose: false,
+      maxWidth: '500px'
+    });
+    
+    
+    dynamicComponentRef.afterClosed().subscribe((result: string) => {
+      console.log('Dialog closed with result:', result);
+    });
+
+    dynamicComponentRef.afterOpened().subscribe(() => {
+      console.log('Dialog opened');
+    });
+
+    dynamicComponentRef.backdropClick().subscribe((event: MouseEvent) => {
+      console.log('Backdrop clicked', event);
+    });
+
+    dynamicComponentRef.keydownEvents().subscribe((event: KeyboardEvent) => {
+      console.log('Keydown event:', event);
+    });
   }
 
 

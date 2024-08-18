@@ -23,10 +23,7 @@ $dark-theme: (
 @include components.all-themes($dark-theme);
 
 
-html,
-body {
-    height: 100%;
-}
+
 
 html {
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -46,4 +43,9 @@ body {
 
 a {
     color: inherit;
+}
+
+.my-backdrop {
+    background: red;
+    transition: none !important;
 }
