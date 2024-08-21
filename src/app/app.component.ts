@@ -129,35 +129,35 @@ export class AppComponent {
     this.buttonLabel = 'Dark Theme';
 
     
-    const dynamicComponentRef =  this.dynamicComponentService.open(MyDialogComponent, {
-      data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
-            ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
-            nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
-            nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
-            nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
-            nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
-      hasBackdrop: true,
-      backdropClass: 'my-backdrop',
-      disableClose: false,
-      maxWidth: '500px'
-    });
+    // const dynamicComponentRef =  this.dynamicComponentService.open(MyDialogComponent, {
+    //   data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
+    //         ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
+    //         nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
+    //         nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
+    //         nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
+    //         nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
+    //   hasBackdrop: true,
+    //   backdropClass: 'my-backdrop',
+    //   disableClose: false,
+    //   maxWidth: '500px'
+    // });
     
     
-    dynamicComponentRef.afterClosed().subscribe((result: string) => {
-      console.log('Dialog closed with result:', result);
-    });
+    // dynamicComponentRef.afterClosed().subscribe((result: string) => {
+    //   console.log('Dialog closed with result:', result);
+    // });
 
-    dynamicComponentRef.afterOpened().subscribe(() => {
-      console.log('Dialog opened');
-    });
+    // dynamicComponentRef.afterOpened().subscribe(() => {
+    //   console.log('Dialog opened');
+    // });
 
-    dynamicComponentRef.backdropClick().subscribe((event: MouseEvent) => {
-      console.log('Backdrop clicked', event);
-    });
+    // dynamicComponentRef.backdropClick().subscribe((event: MouseEvent) => {
+    //   console.log('Backdrop clicked', event);
+    // });
 
-    dynamicComponentRef.keydownEvents().subscribe((event: KeyboardEvent) => {
-      console.log('Keydown event:', event);
-    });
+    // dynamicComponentRef.keydownEvents().subscribe((event: KeyboardEvent) => {
+    //   console.log('Keydown event:', event);
+    // });
   }
 
 
