@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { DYNAMIC_COMPONENT_DATA, DynamicComponentCloseDirective, IconComponent, PanelComponent, PanelContentComponent, PanelHeaderActionButtonDirective, PanelHeaderActionsComponent, PanelHeaderComponent, PanelHeaderTitleComponent } from 'ngx-toolkit';
+import { POPUP_DATA, IconComponent, PanelComponent, PanelContentComponent, PanelHeaderActionButtonDirective, PanelHeaderActionsComponent, PanelHeaderComponent, PanelHeaderTitleComponent, PopupCloseDirective } from 'ngx-toolkit';
 
 @Component({
   selector: 'my-dialog',
@@ -12,12 +12,14 @@ import { DYNAMIC_COMPONENT_DATA, DynamicComponentCloseDirective, IconComponent, 
     PanelHeaderActionButtonDirective,
     PanelContentComponent,
     IconComponent,
-    DynamicComponentCloseDirective
+    PopupCloseDirective
   ],
   templateUrl: './my-dialog.component.html',
   styleUrl: './my-dialog.component.scss'
 })
 export class MyDialogComponent {
-  public data = inject(DYNAMIC_COMPONENT_DATA);
+  public data = inject(POPUP_DATA);
+
+  
 
 }

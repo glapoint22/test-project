@@ -23,7 +23,8 @@ import {
   MenuItemDirective,
   MenuBarComponent,
   MenuTriggerDirective,
-  DynamicComponentService} from 'ngx-toolkit';
+  PopupService
+} from 'ngx-toolkit';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 
 @Component({
@@ -64,7 +65,7 @@ export class AppComponent {
   seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
   checked = true;
 
-  selectedValue!: string ;
+  selectedValue!: string;
 
   states: string[] = [
     'Alabama',
@@ -121,15 +122,18 @@ export class AppComponent {
 
   myDate: Date = new Date('6/22/24');
 
-  private dynamicComponentService = inject(DynamicComponentService);
+  private popupService = inject(PopupService);
 
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'light-theme');
     this.buttonLabel = 'Dark Theme';
 
-    
-    // const dynamicComponentRef =  this.dynamicComponentService.open(MyDialogComponent, {
+
+    // const popupRef = this.popupService.open(MyDialogComponent, {
+    //   positionStrategy: this.popupService.getGlobalPositionStrategy()
+    //     .centerHorizontally()
+    //     .centerVertically(),
     //   data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
     //         ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
     //         nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
@@ -141,21 +145,21 @@ export class AppComponent {
     //   disableClose: false,
     //   maxWidth: '500px'
     // });
-    
-    
-    // dynamicComponentRef.afterClosed().subscribe((result: string) => {
+
+
+    // popupRef.afterClosed().subscribe((result: string) => {
     //   console.log('Dialog closed with result:', result);
     // });
 
-    // dynamicComponentRef.afterOpened().subscribe(() => {
+    // popupRef.afterOpened().subscribe(() => {
     //   console.log('Dialog opened');
     // });
 
-    // dynamicComponentRef.backdropClick().subscribe((event: MouseEvent) => {
+    // popupRef.backdropClick().subscribe((event: MouseEvent) => {
     //   console.log('Backdrop clicked', event);
     // });
 
-    // dynamicComponentRef.keydownEvents().subscribe((event: KeyboardEvent) => {
+    // popupRef.keydownEvents().subscribe((event: KeyboardEvent) => {
     //   console.log('Keydown event:', event);
     // });
   }
