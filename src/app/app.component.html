@@ -37,15 +37,20 @@
 <divider />
 
 <br>
-<br>
+<br> -->
+<form>
+    <form-field>
+        <input type="email" inputField [formControl]="emailFormControl">
+        <form-field-label>Email</form-field-label>
+        <form-field-hint>john&#64;gmail.com</form-field-hint>
+        @if (emailFormControl.hasError('email') && emailFormControl.touched ) {
+        <form-field-error>Please enter a valid email address</form-field-error>
+        }
+    </form-field>
+</form>
 
-<form-field>
-    <input inputField>
-    <form-field-label>First Name</form-field-label>
-    <form-field-hint>i.e. John</form-field-hint>
-</form-field>
 
-<br>
+<!-- <br>
 <br>
 <br>
 
@@ -250,10 +255,10 @@
     </button>
 
     <button menuItem><span>Item 3</span></button>
-</menu> -->
+</menu>
 
 <data-grid style="max-width: 919px;
     height: 594px;"
 [columnDefs]="colDefs"
 [rowData]="rowData"
-></data-grid>
+></data-grid> -->

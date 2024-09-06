@@ -1,5 +1,5 @@
 import { Component, inject, Renderer2 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   IconComponent,
   RadioButtonComponent,
@@ -25,7 +25,8 @@ import {
   MenuTriggerDirective,
   PopupService,
   DataGridComponent,
-  ColDef
+  ColDef,
+  FormFieldErrorComponent
 } from 'ngx-toolkit';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 
@@ -56,7 +57,9 @@ import { MyDialogComponent } from './my-dialog/my-dialog.component';
     MenuItemDirective,
     MenuBarComponent,
     MenuTriggerDirective,
-    DataGridComponent
+    DataGridComponent,
+    ReactiveFormsModule,
+    FormFieldErrorComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -227,6 +230,8 @@ export class AppComponent {
     { house: "Targaryen", character: "Viserys I Targaryen", status: "King", title: "King of the Andals and the First Men" }
   ];
 
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'light-theme');
@@ -244,8 +249,6 @@ export class AppComponent {
     //         nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
     //         nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
     //   hasBackdrop: true,
-    //   backdropClass: 'my-backdrop',
-    //   disableClose: false,
     //   maxWidth: '500px'
     // });
 
