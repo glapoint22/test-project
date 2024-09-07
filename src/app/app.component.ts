@@ -239,9 +239,6 @@ export class AppComponent {
 
 
     // const popupRef = this.popupService.open(MyDialogComponent, {
-    //   positionStrategy: this.popupService.getGlobalPositionStrategy()
-    //     .centerHorizontally()
-    //     .centerVertically(),
     //   data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
     //         ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
     //         nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
@@ -249,11 +246,12 @@ export class AppComponent {
     //         nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
     //         nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
     //   hasBackdrop: true,
-    //   maxWidth: '500px'
+    //   maxWidth: '500px',
+    //   blockScroll: true
     // });
 
 
-    // popupRef.afterClosed().subscribe((result: string) => {
+    // popupRef.onClose().subscribe((result: string) => {
     //   console.log('Dialog closed with result:', result);
     // });
 
