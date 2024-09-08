@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { POPUP_DATA, IconComponent, PanelComponent, PanelContentComponent, PanelHeaderActionButtonDirective, PanelHeaderActionsComponent, PanelHeaderComponent, PanelHeaderTitleComponent, PopupCloseDirective } from 'ngx-toolkit';
+import { POPUP_DATA, IconComponent, PanelComponent, PanelContentComponent, PanelHeaderActionButtonDirective, PanelHeaderActionsComponent, PanelHeaderComponent, PanelHeaderTitleComponent, PopupCloseDirective, PanelActionsComponent, FlatButtonDirective } from 'ngx-toolkit';
 
 @Component({
   selector: 'my-dialog',
@@ -11,8 +11,10 @@ import { POPUP_DATA, IconComponent, PanelComponent, PanelContentComponent, Panel
     PanelHeaderActionsComponent,
     PanelHeaderActionButtonDirective,
     PanelContentComponent,
+    PanelActionsComponent,
     IconComponent,
-    PopupCloseDirective
+    PopupCloseDirective,
+    FlatButtonDirective
   ],
   templateUrl: './my-dialog.component.html',
   styleUrl: './my-dialog.component.scss'

@@ -256,22 +256,22 @@ export class AppComponent {
     });
 
 
-    // const popupRef = this.popupService.open(MyDialogComponent, {
-    //   data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
-    //         ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
-    //         nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
-    //         nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
-    //         nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
-    //         nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
-    //   hasBackdrop: true,
-    //   maxWidth: '500px',
-    //   blockScroll: true
-    // });
+    const popupRef = this.popupService.open(MyDialogComponent, {
+      data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
+            ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
+            nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
+            nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
+            nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
+            nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
+      hasBackdrop: true,
+      maxWidth: '500px',
+      blockScroll: true
+    });
 
 
-    // popupRef.onClose().subscribe((result: string) => {
-    //   console.log('Dialog closed with result:', result);
-    // });
+    popupRef.onClose().subscribe((result: string) => {
+      console.log('Dialog closed with result:', result);
+    });
 
     // popupRef.afterOpened().subscribe(() => {
     //   console.log('Dialog opened');
