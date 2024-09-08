@@ -27,7 +27,8 @@ import {
   DataGridComponent,
   ColDef,
   FormFieldErrorComponent,
-  DataService
+  DataService,
+  AuthService
 } from 'ngx-toolkit';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { JsonPipe } from '@angular/common';
@@ -240,6 +241,67 @@ export class AppComponent {
   errorMessage = signal<string | null>(null);
 
   private dataService = inject(DataService);
+  
+  private authService = inject(AuthService);
+
+
+  
+
+
+  ngOnInit() {
+    this.renderer.addClass(document.body, 'light-theme');
+    this.buttonLabel = 'Dark Theme';
+    this.authService.authEvent$.subscribe(() => {
+      console.log('Auth event received');
+    });
+
+
+    // const popupRef = this.popupService.open(MyDialogComponent, {
+    //   data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
+    //         ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
+    //         nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
+    //         nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
+    //         nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
+    //         nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
+    //   hasBackdrop: true,
+    //   maxWidth: '500px',
+    //   blockScroll: true
+    // });
+
+
+    // popupRef.onClose().subscribe((result: string) => {
+    //   console.log('Dialog closed with result:', result);
+    // });
+
+    // popupRef.afterOpened().subscribe(() => {
+    //   console.log('Dialog opened');
+    // });
+
+    // popupRef.backdropClick().subscribe((event: MouseEvent) => {
+    //   console.log('Backdrop clicked', event);
+    // });
+
+    // popupRef.keydownEvents().subscribe((event: KeyboardEvent) => {
+    //   console.log('Keydown event:', event);
+    // });
+  }
+
+
+
+
+
+  protected onClick(): void {
+    if (this.buttonLabel === 'Dark Theme') {
+      this.buttonLabel = 'Light Theme';
+      this.renderer.addClass(document.body, 'dark-theme');
+      this.renderer.removeClass(document.body, 'light-theme');
+    } else {
+      this.buttonLabel = 'Dark Theme';
+      this.renderer.addClass(document.body, 'light-theme');
+      this.renderer.removeClass(document.body, 'dark-theme');
+    }
+  }
+
 
 
   testGet(): void {
@@ -299,57 +361,5 @@ export class AppComponent {
           this.errorMessage.set(error.message);
         }
       });
-  }
-
-
-  ngOnInit() {
-    this.renderer.addClass(document.body, 'light-theme');
-    this.buttonLabel = 'Dark Theme';
-
-
-    // const popupRef = this.popupService.open(MyDialogComponent, {
-    //   data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
-    //         ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
-    //         nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
-    //         nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
-    //         nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
-    //         nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
-    //   hasBackdrop: true,
-    //   maxWidth: '500px',
-    //   blockScroll: true
-    // });
-
-
-    // popupRef.onClose().subscribe((result: string) => {
-    //   console.log('Dialog closed with result:', result);
-    // });
-
-    // popupRef.afterOpened().subscribe(() => {
-    //   console.log('Dialog opened');
-    // });
-
-    // popupRef.backdropClick().subscribe((event: MouseEvent) => {
-    //   console.log('Backdrop clicked', event);
-    // });
-
-    // popupRef.keydownEvents().subscribe((event: KeyboardEvent) => {
-    //   console.log('Keydown event:', event);
-    // });
-  }
-
-
-
-
-
-  protected onClick(): void {
-    if (this.buttonLabel === 'Dark Theme') {
-      this.buttonLabel = 'Light Theme';
-      this.renderer.addClass(document.body, 'dark-theme');
-      this.renderer.removeClass(document.body, 'light-theme');
-    } else {
-      this.buttonLabel = 'Dark Theme';
-      this.renderer.addClass(document.body, 'light-theme');
-      this.renderer.removeClass(document.body, 'dark-theme');
-    }
   }
 }
