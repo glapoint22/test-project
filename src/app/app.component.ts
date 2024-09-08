@@ -1,4 +1,4 @@
-import { Component, inject, Renderer2 } from '@angular/core';
+import { Component, inject, Renderer2, signal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   IconComponent,
@@ -26,9 +26,11 @@ import {
   PopupService,
   DataGridComponent,
   ColDef,
-  FormFieldErrorComponent
+  FormFieldErrorComponent,
+  DataService
 } from 'ngx-toolkit';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -59,7 +61,8 @@ import { MyDialogComponent } from './my-dialog/my-dialog.component';
     MenuTriggerDirective,
     DataGridComponent,
     ReactiveFormsModule,
-    FormFieldErrorComponent
+    FormFieldErrorComponent,
+    JsonPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -233,6 +236,72 @@ export class AppComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
 
+  data = signal<any>(null);
+  errorMessage = signal<string | null>(null);
+
+  private dataService = inject(DataService);
+
+
+  testGet(): void {
+    this.dataService.get<any>('https://jsonplaceholder.typicode.com/posts')
+      .subscribe((response) => {
+        this.data.set(response);
+      });
+  }
+
+  testPost(): void {
+    const body = { title: 'foo', body: 'bar', userId: 1 };
+    this.dataService.post<any>('https://jsonplaceholder.typicode.com/posts', body)
+      .subscribe((response) => {
+        this.data.set(response);
+      });
+  }
+
+  testPut(): void {
+    const body = { id: 1, title: 'foo', body: 'bar', userId: 1 };
+    this.dataService.put<any>('https://jsonplaceholder.typicode.com/posts/1', body)
+      .subscribe((response) => {
+        this.data.set(response);
+      });
+  }
+
+  testDelete(): void {
+    this.dataService.delete<any>('https://jsonplaceholder.typicode.com/posts/1')
+      .subscribe((response) => {
+        this.data.set(response);
+      });
+  }
+
+
+  testErrorGet(): void {
+    this.dataService.get<any>('https://jsonplaceholder.typicode.com/invalid-url')
+      .subscribe({
+        next: (response) => {
+          this.data = response;
+          this.errorMessage.set(null);
+        },
+        error: (error) => {
+          this.errorMessage.set(error.message);
+        }
+      });
+  }
+
+  // Simulate POST error (500)
+  testErrorPost(): void {
+    const invalidUrl = 'https://mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=200ms';
+    this.dataService.post<any>(invalidUrl, {})
+      .subscribe({
+        next: (response) => {
+          this.data = response;
+          this.errorMessage.set(null);
+        },
+        error: (error) => {
+          this.errorMessage.set(error.message);
+        }
+      });
+  }
+
+
   ngOnInit() {
     this.renderer.addClass(document.body, 'light-theme');
     this.buttonLabel = 'Dark Theme';
@@ -267,6 +336,7 @@ export class AppComponent {
     //   console.log('Keydown event:', event);
     // });
   }
+
 
 
 

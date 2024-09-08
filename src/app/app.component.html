@@ -1,4 +1,4 @@
-<button strokedButton style="float: right; margin: 10px;" (click)="onClick()">{{buttonLabel}}</button>
+<!-- <button strokedButton style="float: right; margin: 10px;" (click)="onClick()">{{buttonLabel}}</button>
 
 <menu-bar>
     <button [menuTrigger]="myMenu">File</button>
@@ -261,4 +261,18 @@
     height: 594px;"
 [columnDefs]="colDefs"
 [rowData]="rowData"
-></data-grid>
+></data-grid> -->
+
+
+<div>
+    <pre>{{ data() | json }}</pre>
+    <button (click)="testGet()">Test GET</button>
+    <button (click)="testPost()">Test POST</button>
+    <button (click)="testPut()">Test PUT</button>
+    <button (click)="testDelete()">Test DELETE</button>
+
+    <h3>Error Message</h3>
+      <pre>{{ errorMessage() }}</pre>
+      <button (click)="testErrorGet()">Test GET Error</button>
+      <button (click)="testErrorPost()">Test POST Error</button>
+</div>
