@@ -28,7 +28,8 @@ import {
   ColDef,
   FormFieldErrorComponent,
   DataService,
-  AuthService
+  AuthService,
+  SpinnerComponent
 } from 'ngx-toolkit';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { JsonPipe } from '@angular/common';
@@ -63,7 +64,8 @@ import { JsonPipe } from '@angular/common';
     DataGridComponent,
     ReactiveFormsModule,
     FormFieldErrorComponent,
-    JsonPipe
+    JsonPipe,
+    SpinnerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -256,22 +258,22 @@ export class AppComponent {
     });
 
 
-    const popupRef = this.popupService.open(MyDialogComponent, {
-      data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
-            ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
-            nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
-            nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
-            nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
-            nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
-      hasBackdrop: true,
-      maxWidth: '500px',
-      blockScroll: true
-    });
+    // const popupRef = this.popupService.open(MyDialogComponent, {
+    //   data: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nulla nec urna
+    //         ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec
+    //         nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec nunc
+    //         nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam nec
+    //         nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt. Nullam
+    //         nec nunc nec nunc ultricies tincidunt. Nullam nec nunc nec nunc ultricies tincidunt.`,
+    //   hasBackdrop: true,
+    //   maxWidth: '500px',
+    //   blockScroll: true
+    // });
 
 
-    popupRef.onClose().subscribe((result: string) => {
-      console.log('Dialog closed with result:', result);
-    });
+    // popupRef.onClose().subscribe((result: string) => {
+    //   console.log('Dialog closed with result:', result);
+    // });
 
     // popupRef.afterOpened().subscribe(() => {
     //   console.log('Dialog opened');
