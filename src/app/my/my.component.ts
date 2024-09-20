@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { COMPONENT_PARAMS } from 'ngx-toolkit';
 
 @Component({
   selector: 'app-my',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './my.component.scss'
 })
 export class MyComponent {
+  private params = inject(COMPONENT_PARAMS) as any;
+  protected character!: string;
 
+  ngOnInit() {
+    this.character = this.params.value || this.params.name;
+  }
 }

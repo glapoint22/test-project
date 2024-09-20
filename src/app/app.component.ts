@@ -138,10 +138,35 @@ export class AppComponent {
   private popupService = inject(PopupService);
 
   colDefs: ColDef[] = [
-    { field: "house", width: 150 },
+    {
+      field: "house", width: 150,
+
+      // cellStyle: params => {
+      //   if (params.value === 'Stark') {
+
+      //     return { color: 'red', backgroundColor: 'green' };
+      //   }
+      //   return null;
+      // }
+
+      cellStyle: {color: 'red'}
+    },
     { field: "character", width: 300, component: MyComponent },
-    { field: "status", width: 200 },
-    { field: "title", width: 250 }
+    { field: "status", width: 200, component: MyComponent, cellRendererParams: { name: 'Hello' } },
+    {
+      field: "title", width: 250, cellRendererSelector: (params: any) => {
+        if (params.rowData.house === 'Stark') {
+          return {
+            component: MyComponent,
+            params: {
+              name: 'Hello Stark'
+            }
+          }
+        }
+
+        return null;
+      }
+    }
   ];
 
 
@@ -244,11 +269,11 @@ export class AppComponent {
   errorMessage = signal<string | null>(null);
 
   private dataService = inject(DataService);
-  
+
   private authService = inject(AuthService);
 
 
-  
+
 
 
   ngOnInit() {
