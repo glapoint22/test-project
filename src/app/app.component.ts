@@ -33,6 +33,7 @@ import {
 } from 'ngx-toolkit';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { JsonPipe } from '@angular/common';
+import { MyComponent } from './my/my.component';
 
 @Component({
   selector: 'app-root',
@@ -138,7 +139,7 @@ export class AppComponent {
 
   colDefs: ColDef[] = [
     { field: "house", width: 150 },
-    { field: "character", width: 300 },
+    { field: "character", width: 300, component: MyComponent },
     { field: "status", width: 200 },
     { field: "title", width: 250 }
   ];
